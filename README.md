@@ -2,7 +2,7 @@
 Counterstrike 2 External Kernel Cheat
 
 # Usage:
-compile driver <br />
+compile driver (U will need to go to Properties-->Driver signing-->General-->Test Certificate-->"Create Test Certificate" <br />
 compile start.exe (you can also use create.cmd every time you recompile the driver if you dont want start.exe) <br />
 run zwry_esp.exe <br />
 use delete.cmd to unload the driver <br />
