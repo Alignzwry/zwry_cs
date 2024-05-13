@@ -87,8 +87,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, PSTR, int iCmdShow)
     ImFont* arialFont = fontAtlas->AddFontFromFileTTF("c:\\Windows\\Fonts\\msyhbd.ttc", 16.0f, &arialConfig, io.Fonts->GetGlyphRangesChineseFull());
     io.Fonts = fontAtlas;
 
-    bool done = false;
-    while (!done)
+    while (!(GetKeyState(VK_DELETE) & 0x8000))
     {
         auto start = std::chrono::high_resolution_clock::now();
 
@@ -97,11 +96,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, PSTR, int iCmdShow)
         {
             ::TranslateMessage(&msg);
             ::DispatchMessage(&msg);
-            if (msg.message == WM_QUIT)
-                done = true;
         }
-        if (done)
-            break;
 
 
         if (g_ResizeWidth != 0 && g_ResizeHeight != 0)
@@ -179,8 +174,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, PSTR, int iCmdShow)
         g_pd3dDeviceContext->OMSetRenderTargets(1, &g_mainRenderTargetView, nullptr);
         g_pd3dDeviceContext->ClearRenderTargetView(g_mainRenderTargetView, clear_color_with_alpha);
         ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
-        auto stop = std::chrono::high_resolution_clock::now();
         g_pSwapChain->Present(0, 0);
+        auto stop = std::chrono::high_resolution_clock::now();
         auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(stop - start);
         while (duration.count() < frametime) {
             stop = std::chrono::high_resolution_clock::now();
@@ -195,6 +190,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, PSTR, int iCmdShow)
     CleanupDeviceD3D();
     ::DestroyWindow(hwnd);
     ::UnregisterClassW(wc.lpszClassName, wc.hInstance);
+    return 0;
 }
 
 bool CreateDeviceD3D(HWND hWnd)
