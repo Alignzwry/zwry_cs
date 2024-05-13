@@ -21,5 +21,6 @@ Kernel Driver: https://github.com/mbn-code/The-Kernel-Driver-Guide-External
 for disabling signature enforcement: https://github.com/Mattiwatti/EfiGuard
 
 # ToDo:
+- add a menu
 - more error handling
 - performance optimization
