@@ -2,12 +2,12 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <SignMode>TestSign</SignMode>
-    <TestCertificate>CN="WDKTestCert jakob,133597250377674596" | 549023E20B8500FBB8CE128635398FD1D1DE521A</TestCertificate>
+    <TestCertificate></TestCertificate>
   </PropertyGroup>
   <PropertyGroup>
     <ShowAllFiles>true</ShowAllFiles>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <TestCertificate>CN="WDKTestCert jakob,133601012638567743" | 72A4FF2499F4869BD974FA559D8FCC9B369D6F43</TestCertificate>
+    <TestCertificate></TestCertificate>
   </PropertyGroup>
 </Project>
