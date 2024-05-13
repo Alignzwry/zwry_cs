@@ -1,4 +1,3 @@
-#pragma once
 #include <Windows.h>
 #include <iostream>
 #include <filesystem>
@@ -39,12 +38,6 @@ bool InstallAndStartDriver() {
         NULL,
         NULL
     );
-
-    if (scService == NULL) {
-        CloseServiceHandle(scManager);
-        exit(-4);
-        return false;
-    }
 
     if (!StartService(scService, 0, NULL)) {
         CloseServiceHandle(scService);
